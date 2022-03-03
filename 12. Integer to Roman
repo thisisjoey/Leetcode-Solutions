@@ -1,0 +1,137 @@
+class Solution {
+public:
+    vector<char> a;
+    void intToRoma(int num)
+    {
+    if(num>=1000)
+        {
+            num=num-1000;
+            a.push_back('M');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=900)
+        {
+            num=num-900;
+            a.push_back('C');
+            a.push_back('M');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=500)
+        {
+            num=num-500;
+            a.push_back('D');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=400)
+        {
+            num=num-400;
+            a.push_back('C');
+            a.push_back('D');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=100)
+        {
+            num=num-100;
+            a.push_back('C');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=90)
+        {
+            num=num-90;
+            a.push_back('X');
+            a.push_back('C');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=50)
+        {
+            num=num-50;
+            a.push_back('L');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=40)
+        {
+            num=num-40;
+            a.push_back('X');
+            a.push_back('L');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=10)
+        {
+            num=num-10;
+            a.push_back('X');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=9)
+        {
+            num=num-9;
+            a.push_back('I');
+            a.push_back('X');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=5)
+        {
+            num=num-5;
+            a.push_back('V');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=4)
+        {
+            num=num-4;
+            a.push_back('I');
+            a.push_back('V');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+        }
+        else if(num>=1)
+        {
+            num=num-1;
+            a.push_back('I');
+            if(num!=0)
+            {
+                intToRoma(num);
+            }
+            
+            
+        }}
+    string intToRoman(int num) {
+        intToRoma(num);
+        string s(a.begin(),a.end());
+        return s;
+        
+    }
+};
