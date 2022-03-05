@@ -1,0 +1,53 @@
+class Solution {
+public:
+    
+    
+     vector<int> sortedSquares(vector<int>& nums) {
+    
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         //2 pointers comparing the absolute values from left to right.
+         vector<int> answers(nums.size());
+         int l=0,r=nums.size()-1;
+         int back=r;
+         while(r>l|| r==l)
+         {
+             if(abs(nums[l])>=abs(nums[r]))
+             {
+                 answers[back]=nums[l]*nums[l];
+                 l++;
+             }
+             else
+             {
+                 answers[back]=nums[r]*nums[r];
+                 r--;
+             }
+             back--;
+         }
+         return answers;
+         
+    
+    
+    
+    
+    
+    
+    
+    
+    // Very easy and obvious method of doing this question
+        // vector<int> answers;
+        // for(int i=0;i<nums.size();i++)
+        // {
+        //     answers.push_back(nums[i]*nums[i]);
+        // }
+        // sort(answers.begin(),answers.end());
+        // return answers;
+    }
+};
