@@ -1,0 +1,28 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        vector<int> a;
+        int s=nums.size();
+        if(k==0)
+        {
+            return;
+        }
+        if(k%s==0 && k>=s)
+        {
+            return;
+        }
+        else if(k>s)
+        {
+            k=k%s;
+        }
+        while(k--)
+        {
+            a.push_back(nums[nums.size()-1]);
+            nums.pop_back();
+        }
+        reverse(a.begin(), a.end());
+        a.insert( a.end(), nums.begin(), nums.end() );
+        nums.clear();
+        nums=a;
+    }
+};
