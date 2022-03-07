@@ -1,0 +1,30 @@
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int count=n+m;
+        for(int i=0;i<nums1.size();i++)
+        {
+            again:
+            if(nums1[i]==0 && i<nums1.size())
+            {
+                nums1.erase(nums1.begin()+i);
+                goto again;
+            }
+        }
+        for(int i=0;i<nums2.size();i++)
+        {
+            if(nums2[i]!=0)
+            {
+                nums1.push_back(nums2[i]);
+            }
+        }
+        if(nums1.size()!=count)
+        {
+            while(nums1.size()!=count)
+            {
+                nums1.push_back(0);
+            }
+        }
+        sort(nums1.begin(),nums1.end());
+    }
+};
