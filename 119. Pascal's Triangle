@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+              int n= 1;
+        if(rowIndex==1)
+            return {1,1};
+        int numRows = rowIndex;
+        vector<vector<int>> ans = {{1},{1,1}};
+        while((n+1)<=numRows)
+        {
+            vector<int> temp;
+            temp.push_back(1);
+            for(int i=0;i<ans[n].size()-1;i++)
+            {
+                temp.push_back(ans[n][i]+ans[n][i+1]);
+            }
+            temp.push_back(1);
+            ans.push_back(temp);
+            temp.clear();
+            n++;
+        }
+        return ans[rowIndex];
+    }
+};
