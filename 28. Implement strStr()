@@ -1,0 +1,42 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int i;
+        // For the condition when haystack or needle is empty OR haystack is not empty but needle is empty
+        if((needle.size()==0 && haystack.size()!=0)||(haystack.size()==0 && needle.size()==0))
+        {
+            return 0;
+        }
+        //For the condition when Haystack is smaller and needle is bigger
+        if((haystack.size()==0||needle.size()==0) || (haystack.size()<needle.size()))
+        {
+            return -1;
+        }
+        //For all other test cases.
+        for(i=0;i<haystack.size();i++)
+        {
+            //when the iterator passes the zone where it can no longer fit and find new needle
+            if(i>(haystack.size()-needle.size()))
+            {
+                return -1;
+            }
+            if(haystack[i]==needle[0])
+            {
+                int p1=i,x=0,y=needle.size()-1,p2=i+(needle.size()-1);
+                while(haystack[p1]==needle[x] && haystack[p2]==needle[y])
+                {
+                    if(x>=y && p1>=p2)
+                    {
+                        return i;
+                    }
+                    p1++;
+                    p2--;
+                    x++;
+                    y--;
+                }
+            }
+            
+        }
+        return -1;
+    }
+};
