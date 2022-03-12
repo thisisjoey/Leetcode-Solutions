@@ -1,0 +1,50 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* head=NULL;
+    ListNode* prev;
+    //Funtion to insert elements in the new Linked list
+    void insert(int data)
+    {
+        ListNode* temp=new ListNode();
+        if(head==NULL)
+        {
+            head=temp;
+        }
+        temp->val=data;
+        if(prev!=NULL)
+        {
+            prev->next=temp;
+        }
+        prev=temp;
+        
+    }
+    //Recursive Calls
+    void rl(ListNode*li)
+    {
+        if(li->next!=NULL)
+        {
+            rl(li->next);
+        }
+        insert(li->val);
+    }
+    //Main Funtion
+    ListNode* reverseList(ListNode* li) {
+        if(li==NULL)
+        {
+            return li;
+        }
+        rl(li);
+        return head;
+        
+    }
+};
