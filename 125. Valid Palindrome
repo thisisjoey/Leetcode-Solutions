@@ -1,0 +1,37 @@
+class Solution {
+public:
+    bool ispdm(vector<char> vec)
+    {
+        for(int i=0,j=vec.size()-1;i<=j;i++,j--)
+        {
+            if(vec[i]!=vec[j])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    bool isPalindrome(string s) {
+        vector<char> vec;
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]>=65 && s[i]<=90)
+            {
+                vec.push_back(s[i]+32);
+            }
+            else if(s[i]>=97 && s[i]<=122)
+            {
+                vec.push_back(s[i]);
+            }
+            else if(s[i]>=48 && s[i]<=57)
+            {
+                vec.push_back(s[i]);
+            }
+            else
+            {
+                continue;
+            }
+        }
+        return ispdm(vec);
+    }
+};
