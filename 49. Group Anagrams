@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string,int> um;
+        vector<vector<string>> vec;
+        int itr=0;
+        for(auto &i:strs)
+        {
+            string temp=i;
+            sort(temp.begin(),temp.end());
+            if(um.find(temp)!=um.end())
+            {
+                vec[um[temp]].push_back(i);
+            }
+            else
+            {
+                um[temp]=itr;
+                itr++;
+                vector<string> t;
+                t.push_back(i);
+                vec.push_back(t);
+            }
+        }
+        return vec;
+    }
+};
